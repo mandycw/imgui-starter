@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "imgui/imgui.h"
+#include "logger.h"
 
 namespace ClassGame {
         //
@@ -13,9 +14,9 @@ namespace ClassGame {
         void GameStartUp() 
         {
             // Initialize logging system
-//            Logger& logger = Logger::GetInstance();
-//            logger.LogInfo("Game started successfully");
-//            logger.LogGameEvent("Application initialized");
+           Logger& logger = Logger::getInstance();
+           logger.LogInfo("Game started successfully");
+           logger.LogGameEvent("Application initialized");
         }
 
         //
@@ -37,6 +38,17 @@ namespace ClassGame {
                 ImGui::LogFinish();
             }
             ImGui::End();
+
+            
+
+            
+            Logger::getInstance().renderLogWindow();
+            
+           
+            
+             
+
+            
         }
 
         //
@@ -46,4 +58,4 @@ namespace ClassGame {
         void EndOfTurn() 
         {
         }
-}
+};
